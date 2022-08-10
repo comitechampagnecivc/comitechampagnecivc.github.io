@@ -396,19 +396,6 @@
         var baseMaps = {};
         L.control.layers(baseMaps,{'Prelevements_ZE<br /><table><tr><td style="text-align: center;"><img src="legend/Prelevements_ZE_3_BNnégatif0.png" /></td><td>BN négatif</td></tr><tr><td style="text-align: center;"><img src="legend/Prelevements_ZE_3_BNpositif1.png" /></td><td>BN positif</td></tr><tr><td style="text-align: center;"><img src="legend/Prelevements_ZE_3_enattentedediagnostic2.png" /></td><td>en attente de diagnostic</td></tr></table>': layer_Prelevements_ZE_3,'Prelevements_ZD<br /><table><tr><td style="text-align: center;"><img src="legend/Prelevements_ZD_2_BNnégatif0.png" /></td><td>BN négatif</td></tr><tr><td style="text-align: center;"><img src="legend/Prelevements_ZD_2_BNpositif1.png" /></td><td>BN positif</td></tr><tr><td style="text-align: center;"><img src="legend/Prelevements_ZD_2_enattentedediagnostic2.png" /></td><td>en attente de diagnostic</td></tr></table>': layer_Prelevements_ZD_2,'<img src="legend/CommunesAOCChampagne_1.png" /> Communes AOC Champagne': layer_CommunesAOCChampagne_1,"Google Satellite": layer_GoogleSatellite_0,}).addTo(map);
         setBounds();
-        var i = 0;
-        layer_CommunesAOCChampagne_1.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                variables: {}
-            };
-            layer.bindTooltip((layer.feature.properties['aoc_nom'] !== null?String('<div style="color: #000000; font-size: 10pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['aoc_nom']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_CommunesAOCChampagne_1'});
-            labels.push(layer);
-            totalMarkers += 1;
-              layer.added = true;
-              addLabel(layer, i);
-              i++;
-        });
         map.addControl(new L.Control.Search({
             layer: layer_CommunesAOCChampagne_1,
             initial: false,
